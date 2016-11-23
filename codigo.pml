@@ -120,3 +120,11 @@ llamada:
            run Centralita();
       }
     }  
+
+    ltl p2 { [] ( conversacion[1] != 1 && conversacion[2] != 2 ) };
+    ltl p3 { [] 
+                ( (estadoVecino[1] == hablando) -> (ctr2v[1] != colgado) && (ctr2v[1] == colgado) -> (estadoVecino[1] != hablando) ) && 
+                ( (estadoVecino[2] == hablando) -> (ctr2v[2] != colgado) && (ctr2v[2] == colgado) -> (estadoVecino[2] != hablando) )
+           };
+    ltl p5 { <> ( estadoVecino[1] == sonando || estadoVecino[2] == sonando || estadoVecino[3] == sonando || estadoVecino[4] == sonando )};
+    ltl p6 { <> ( estadoVecino[1] == hablando && estadoVecino[2] == hablando && conversacion[1] == 2 && conversacion[2] == 1 )};
