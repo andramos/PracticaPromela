@@ -3,13 +3,21 @@
     chan ctr= [0] of {mtype,short};
     chan ctr2v[NVecinos] = [0] of {mtype,short};
     
+    mtype estadoVecino[NVecinos];
+
     inline selIndetermista(id){
+      
+      seleccionar:
       
       id = 0;
       do
       :: id < NVecinos -> id++
       :: break
       od
+
+      if
+      :: estadoVecino[id] != colgado -> goto seleccionar;
+      fi
 
     }
 
@@ -25,14 +33,16 @@
     }
 
     proctype Centralita(){
-
+      
     }
 
     init{
       atomic{
          short i = 0; 
            do
-           :: i<NVecinos-> run Vecino(i);i++
+           :: i<NVecinos-> run Vecino(i);
+              estadoVecino[i] = colgado;
+              i++
            :: else->break;
            od;
            run Centralita();
