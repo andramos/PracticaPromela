@@ -9,12 +9,14 @@
       
       seleccionar:
       
+      // selecciona uno de forma indeterminista
       id = 0;
       do
       :: id < NVecinos -> id++
       :: break
       od
 
+      // comprueba que el vecino seleccionado este colgado
       if
       :: estadoVecino[id] != colgado -> goto seleccionar;
       fi
@@ -26,14 +28,29 @@
       mtype estado;
 
       do
-      :: ctr ? sonando,id;
-      :: 
+      :: ctr ? sonando,id ->
+
+
+      :: ctr!descolgado,id ->
+
+
       od
 
     }
 
     proctype Centralita(){
-      
+      short id;
+
+      if
+      :: ctr?descolgado,id ->
+          estadoVecino[id]=descolgado;
+
+
+      :: ctr?responde,id2 ->
+
+      :: ctr?colgado,id ->
+
+      fi
     }
 
     init{
