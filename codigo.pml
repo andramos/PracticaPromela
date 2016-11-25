@@ -22,23 +22,21 @@
       short id2;
 
       do
-        :: if
-          // espera a que suene
-          :: ctr2v[id]?sonando,id2 ->
+        // espera a que suene
+        :: ctr2v[id]?sonando,id2 ->
 
-            ctr!responde,id;
-            ctr2v[id]?conectado,id2; // espera a que le conecten
-            if
-              :: ctr2v[id]?colgado,id2; // espera a que le cuelguen
-                
-              :: ctr!colgado,id; // decide colgar
-            fi      
-            
-          // descuelga
-          :: (estadoVecino[id] == colgado) -> 
-            ctr!descolgado,id;
-            ctr2v[id]?conectado,id2 // espera a que lo conecten
-        fi
+          ctr!responde,id;
+          ctr2v[id]?conectado,id2; // espera a que le conecten
+          if
+            :: ctr2v[id]?colgado,id2; // espera a que le cuelguen
+              
+            :: ctr!colgado,id; // decide colgar
+          fi      
+          
+        // descuelga
+        :: (estadoVecino[id] == colgado) -> 
+          ctr!descolgado,id;
+          ctr2v[id]?conectado,id2 // espera a que lo conecten
       od
     }
 
@@ -47,49 +45,47 @@
       short i = 0;
 
       do
-        :: if
-          :: ctr?descolgado,id ->
+        :: ctr?descolgado,id ->
 
-              selIndetermista(id2);
+            selIndetermista(id2);
 
-              // si estan colgados y no es él mismo
-              if
-                :: (id2 >= 0 && id != id2) ->
-                  atomic{
-                    conversacion[id]=id2;
-                    conversacion[id2]=id;
+            // si estan colgados y no es él mismo
+            if
+              :: (id2 >= 0 && id != id2) ->
+                atomic{
+                  conversacion[id]=id2;
+                  conversacion[id2]=id;
 
-                    estadoVecino[id] = descolgado;
-                    estadoVecino[id2] = sonando;
+                  estadoVecino[id] = descolgado;
+                  estadoVecino[id2] = sonando;
 
-                    ctr2v[id2]!sonando,id;
-                  }
-              fi
+                  ctr2v[id2]!sonando,id;
+                }
+            fi
 
-          :: ctr?responde,id2 ->
-            atomic{
-              id=conversacion[id2]; 
-              
-              estadoVecino[id] = conectado;
-              estadoVecino[id2] = conectado;
+        :: ctr?responde,id2 ->
+          atomic{
+            id=conversacion[id2]; 
+            
+            estadoVecino[id] = conectado;
+            estadoVecino[id2] = conectado;
 
-              ctr2v[id]!conectado,id2; 
-              ctr2v[id2]!conectado,id;
-            }
+            ctr2v[id]!conectado,id2; 
+            ctr2v[id2]!conectado,id;
+          }
 
-          :: ctr?colgado,id ->
-            atomic{
-              id2=conversacion[id];
+        :: ctr?colgado,id ->
+          atomic{
+            id2=conversacion[id];
 
-              conversacion[id] = -1;
-              conversacion[id2] = -1;
+            conversacion[id] = -1;
+            conversacion[id2] = -1;
 
-              estadoVecino[id] = colgado;
-              estadoVecino[id2] = colgado;
+            estadoVecino[id] = colgado;
+            estadoVecino[id2] = colgado;
 
-              ctr2v[id2]!colgado,id;
-            }
-        fi
+            ctr2v[id2]!colgado,id;
+          }
       od
     }
 
