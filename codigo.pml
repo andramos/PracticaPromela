@@ -26,11 +26,11 @@
       do
 
         :: if
-          :: ctr2v[id]?sonando,id2 -> // Me suena el teléfono
+          :: ctr2v[id]?sonando,id2 ->
 
 respondo:   
-            ctr!responde,id -> //Respondo la llamada
-              ctr2v[id]?conectado, id2 -> // Estoy conectado con id2!!
+            ctr!responde,id ->
+              ctr2v[id]?conectado, id2 ->
 llamada:      
               if
                 :: ctr2v[id]?colgado,id2 ->
@@ -40,14 +40,12 @@ llamada:
               fi      
             
 
-          :: ctr!descolgado,id -> // Descuelgo
-
-            
+          :: ctr!descolgado,id ->
 
             if
-              :: ctr2v[id]?conectado,id2 -> // ...espero a recibir la id del id2 -> Recibida
+              :: ctr2v[id]?conectado,id2 ->
                 goto llamada;
-              :: ctr2v[id]?sonando,id2 -> // En caso de que el teléfono suene cuando estoy descolgado
+              :: ctr2v[id]?sonando,id2 ->
                 goto respondo;
             fi
         fi
@@ -61,30 +59,30 @@ llamada:
 
       do
         :: if
-          :: ctr?descolgado,id -> // id descuelga
+          :: ctr?descolgado,id ->
 
-              selIndetermista(id2); //busca un vecino colgado
+              selIndetermista(id2);
 
               if
-                :: (id2 < 0 || id == id2) -> // Es importante que no llame a sí mismo
+                :: (id2 < 0 || id == id2) ->
                   printf("C: No ha encontrado a nadie disponible para vecino %d",id);
-                :: else -> // Ha encontrado a uno disponible (id2)
+                :: else ->
+                  atomic{
+                    conversacion[id]=id2;
+                    conversacion[id2]=id;
 
-                  conversacion[id]=id2; // actualizo conversacion
-                  conversacion[id2]=id; // idem
+                    estadoVecino[id] = descolgado;
+                    estadoVecino[id2] = sonando;
 
-                  estadoVecino[id] = descolgado; //id pasa a estar descolgado
-                  estadoVecino[id2] = sonando;
-
-                  printf("C: %d, te está llamando %d ",id2,id);
-                  ctr2v[id2]!sonando,id;
+                    printf("LLAMANDO: %d a %d",id,id2);
+                    ctr2v[id2]!sonando,id;
+                  }
               fi
 
 
-          ::  ctr?responde,id2 -> // id2 acepta la llamada de id
+          :: ctr?responde,id2 ->
 
-            id=conversacion[id2];
-            printf("C: V%d->V%d conectado!", id, id2);              
+            id=conversacion[id2]; 
             
             estadoVecino[id] = conectado;
             estadoVecino[id2] = conectado;
@@ -92,9 +90,9 @@ llamada:
             ctr2v[id]!conectado,id2; 
             ctr2v[id2]!conectado,id;
 
-          :: ctr?colgado,id -> // id decide colgar
+          :: ctr?colgado,id ->
 
-            id2=conversacion[id]; //id2 es su compañero
+            id2=conversacion[id];
 
             estadoVecino[id] = colgado;
             estadoVecino[id2] = colgado;
@@ -102,7 +100,7 @@ llamada:
             conversacion[id] = -1;
             conversacion[id2] = -1;
 
-            ctr2v[id2]!colgado,id; //id2, te ha colgado id
+            ctr2v[id2]!colgado,id;
         fi
       od
     }
@@ -111,7 +109,7 @@ llamada:
       atomic{
          short i = 0; 
            do
-           :: i<NVecinos-> run Vecino(i);
+           :: i<NVecinos -> run Vecino(i);
               estadoVecino[i] = colgado;
               conversacion[i] = -1;
               i++
