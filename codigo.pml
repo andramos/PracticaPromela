@@ -44,8 +44,8 @@
     }
 
     proctype Centralita(){
-      short i = 0;
       short id, id2;
+      short i = 0;
 
       do
         :: if
@@ -54,9 +54,7 @@
               selIndetermista(id2);
 
               if
-                :: (id2 < 0 || id == id2) ->
-                  printf("C: No ha encontrado a nadie disponible para vecino %d",id);
-                :: else ->
+                :: (id2 >= 0 && id != id2) ->
                   atomic{
                     conversacion[id]=id2;
                     conversacion[id2]=id;
@@ -64,33 +62,33 @@
                     estadoVecino[id] = descolgado;
                     estadoVecino[id2] = sonando;
 
-                    printf("LLAMANDO: %d a %d",id,id2);
                     ctr2v[id2]!sonando,id;
                   }
               fi
 
-
           :: ctr?responde,id2 ->
+            atomic{
+              id=conversacion[id2]; 
+              
+              estadoVecino[id] = conectado;
+              estadoVecino[id2] = conectado;
 
-            id=conversacion[id2]; 
-            
-            estadoVecino[id] = conectado;
-            estadoVecino[id2] = conectado;
-
-            ctr2v[id]!conectado,id2; 
-            ctr2v[id2]!conectado,id;
+              ctr2v[id]!conectado,id2; 
+              ctr2v[id2]!conectado,id;
+            }
 
           :: ctr?colgado,id ->
+            atomic{
+              id2=conversacion[id];
 
-            id2=conversacion[id];
+              conversacion[id] = -1;
+              conversacion[id2] = -1;
 
-            estadoVecino[id] = colgado;
-            estadoVecino[id2] = colgado;
+              estadoVecino[id] = colgado;
+              estadoVecino[id2] = colgado;
 
-            conversacion[id] = -1;
-            conversacion[id2] = -1;
-
-            ctr2v[id2]!colgado,id;
+              ctr2v[id2]!colgado,id;
+            }
         fi
       od
     }
