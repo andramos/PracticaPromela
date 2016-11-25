@@ -15,13 +15,12 @@
         :: (estadoVecino[3] == colgado) -> id=3;
         :: (estadoVecino[4] == colgado) -> id=4;
         :: else -> id=-1;
-              break;
       fi
     }
 
     proctype Vecino(short id){
-
       short id2;
+
       do
         :: if
           // espera a que suene
@@ -53,6 +52,7 @@
 
               selIndetermista(id2);
 
+              // si estan colgados y no es él mismo
               if
                 :: (id2 >= 0 && id != id2) ->
                   atomic{
