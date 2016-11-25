@@ -17,40 +17,30 @@
         :: else -> id=-1;
               break;
       fi
-
     }
 
     proctype Vecino(short id){
 
       short id2;
       do
-
         :: if
+          // espera a que suene
           :: ctr2v[id]?sonando,id2 ->
 
-respondo:   
-            ctr!responde,id ->
-              ctr2v[id]?conectado, id2 ->
-llamada:      
-              if
-                :: ctr2v[id]?colgado,id2 ->
-                  printf("V%d: Me ha colgado %d ",id,id2);
-                :: ctr!colgado,id ->
-                  printf("V%d: Acabo de colgarle a %d ", id, id2);
-              fi      
-            
-
-          :: ctr!descolgado,id ->
-
+            ctr!responde,id;
+            ctr2v[id]?conectado,id2; // espera a que le conecten
             if
-              :: ctr2v[id]?conectado,id2 ->
-                goto llamada;
-              :: ctr2v[id]?sonando,id2 ->
-                goto respondo;
-            fi
+              :: ctr2v[id]?colgado,id2; // espera a que le cuelguen
+                
+              :: ctr!colgado,id; // decide colgar
+            fi      
+            
+          // descuelga
+          :: (estadoVecino[id] == colgado) -> 
+            ctr!descolgado,id;
+            ctr2v[id]?conectado,id2 // espera a que lo conecten
         fi
       od
-
     }
 
     proctype Centralita(){
