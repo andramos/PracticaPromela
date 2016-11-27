@@ -42,7 +42,6 @@
 
     proctype Centralita(){
       short id, id2;
-      short i = 0;
 
       do
         :: ctr?descolgado,id ->
