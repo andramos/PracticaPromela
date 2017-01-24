@@ -14,7 +14,7 @@ attributes
 	hora: Integer
 	numAsistentes: Integer
 operations
-	reservar()
+	reservar(c: Cliente)
 end
 
 class Entrada
@@ -26,7 +26,7 @@ attributes
 	hora: Integer
 operations
 	devolver()
-	vender()
+	vender(c: Cliente)
 end
 
 class Reserva
@@ -50,7 +50,27 @@ end
 
 -- Associations
 
-association  between
-	Teatro[]
-	Sesion[]
+association TeatroSesion between
+	Sesion[*]
+	Teatro[1]
+end
+
+association EspectaculoSesion between
+	Espectaculo[1]
+	Sesion[*]
+end
+
+association SesionEntrada between
+	Sesion[1]
+	Entrada[*]
+end
+
+association EntradaReserva between
+	Entrada[1]
+	Reserva[0..6]
+end
+
+association ClienteReserva between
+	Cliente[1]
+	Reserva[*]
 end
