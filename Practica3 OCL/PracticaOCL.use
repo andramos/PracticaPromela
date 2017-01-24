@@ -84,4 +84,17 @@ inv NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.n
 
 context Sesion
 
-inv AsistentesYAsientos: self.
+inv AsistentesYAsientos: self.numAsistentes <= self.Teatro.numAsientos
+
+context Sesion
+
+inv EntradasVendidas: forAll(s | s.numAsistentes == s.Entrada->size())
+
+context Sesion
+
+inv AsientosDiferentes: forAll(s1.Entrada, s2.Entrada | s1.Entrada <> s2.Entrada implies s1.Entrada.numAsiento <> s2.Entrada.numAsiento)
+
+context Entrada
+
+inv MismaHoraSesion: forAll(e | e.dia == e.Sesion.dia and e.Hora == e.Sesion.hora)
+
