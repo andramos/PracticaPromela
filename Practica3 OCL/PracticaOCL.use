@@ -74,3 +74,14 @@ association ClienteReserva between
 	Cliente[1]
 	Reserva[*]
 end
+
+-- Constraints
+
+constraints
+context Espectaculo
+
+inv NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
+
+context Sesion
+
+inv AsistentesYAsientos: self.
