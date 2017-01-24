@@ -1,0 +1,56 @@
+model teatro
+
+-- Classes
+
+class Teatro
+attributes
+	nombre: String
+	numAsientos: Integer
+end
+
+class Sesion
+attributes
+	dia: Integer
+	hora: Integer
+	numAsistentes: Integer
+operations
+	reservar()
+end
+
+class Entrada
+attributes
+	reservado: Boolean
+	vendida: Integer
+	numAsiento: Integer
+	dia: Integer
+	hora: Integer
+operations
+	devolver()
+	vender()
+end
+
+class Reserva
+attributes
+	numReservas: Integer
+end
+
+class Cliente
+end
+
+class Espectaculo
+attributes
+	nombre: String
+end
+
+class ObraDanza < Espectaculo
+end
+
+class ObraTeatro < Espectaculo
+end
+
+-- Associations
+
+association  between
+	Teatro[]
+	Sesion[]
+end
