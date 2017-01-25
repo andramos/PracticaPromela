@@ -66,8 +66,8 @@ association SesionEntrada between
 end
 
 association EntradaReserva between
-	Entrada[1]
-	Reserva[0..6]
+	Entrada[0..6]
+	Reserva[1]
 end
 
 association ClienteReserva between
@@ -84,17 +84,42 @@ inv NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.n
 
 context Sesion
 
-inv AsistentesYAsientos: self.numAsistentes <= self.Teatro.numAsientos
+inv AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
 
 context Sesion
 
-inv EntradasVendidas: forAll(s | s.numAsistentes == s.Entrada->size())
+inv EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
 
 context Sesion
 
-inv AsientosDiferentes: forAll(s1.Entrada, s2.Entrada | s1.Entrada <> s2.Entrada implies s1.Entrada.numAsiento <> s2.Entrada.numAsiento)
+inv AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
+
+context Sesion
+
+inv MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
 
 context Entrada
 
-inv MismaHoraSesion: forAll(e | e.dia == e.Sesion.dia and e.Hora == e.Sesion.hora)
+inv EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
 
+context Reserva
+
+inv EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
+
+/*Las sesiones de cada espect´aculo no pueden coincidir en d´ıa y hora.*/
+
+context Espectaculo
+
+inv SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
+
+/*Cada dia hay, a lo sumo, dos sesiones por espectaculo.*/
+
+context Espectaculo
+
+inv Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
+
+/*Si dos sesiones de un espect´aculo son el mismo d´ıa, entonces tienen lugar en el mismo teatro.*/
+
+context Espectaculo
+
+inv MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
