@@ -20,7 +20,7 @@ end
 class Entrada
 attributes
 	reservado: Boolean
-	vendida: Integer
+	vendida: Boolean
 	numAsiento: Integer
 	dia: Integer
 	hora: Integer
@@ -80,83 +80,31 @@ end
 constraints
 context Espectaculo
 
-inv NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
+inv I1_NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
 
 context Sesion
 
-inv AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
-
-context Sesion
-
-inv EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
-
-context Sesion
-
-inv AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
-
-context Sesion
-
-inv MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
+inv I2_AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
+inv I3_EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
+inv I4_AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
+inv I5_MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
 
 context Entrada
 
-inv EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
+inv I6_EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
 
 context Reserva
 
-inv EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
+inv I7_EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
 
-/*Las sesiones de cada espect´aculo no pueden coincidir en d´ıa y hora.*/
+/*Las sesiones de cada espectaculo no pueden coincidir en dia y hora.*/
 
 context Espectaculo
 
-inv SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
+inv I8_SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
 
 /*Cada dia hay, a lo sumo, dos sesiones por espectaculo.*/
+inv I9_Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
 
-context Espectaculo
-
-inv Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
-
-/*Si dos sesiones de un espect´aculo son el mismo d´ıa, entonces tienen lugar en el mismo teatro.*/
-
-context Espectaculo
-
-inv MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
-
-/*Para la operaci´on vender(c:Cliente) de la clase Entrada establece las siguientes pre/post condiciones:
-a) Pre: El cliente que quiere comprar la entrada, la tiene reservada.
-b) Pre: La entrada no est´a vendida (vendida es false).
-c) Post: La entrada est´a vendida (vendida es true).*/
-
-context Entrada :: vender(c : Cliente)
-pre : self.reserva.cliente = c
-pre : self.vendida = false
-post : self.vendida = true
-
-/*2. Para la operaci´on devolver() de la clase Entrada establece las siguientes pre/post condiciones:
-2
-a) Pre: hay un cliente que tiene la entrada reservada y/o comprada.
-b) Post: La entrada no est´a ni vendida ni reservada .
-c) Post: Ning´un cliente tiene la entrada en ninguna de sus reservas*/
-
-context Entrada :: devolver()
-pre : (self.reserva.cliente->size() = 1 and self.reservado = true) or (self.vendida = false)
-post : self.reserva.cliente->isEmpty() and self.reservado = false and self.vendida = false
-post : Cliente.allInstances->forAll(c | c.reserva->excludes(self))
-
-/*
-3. Para la operaci´on reservar(c:Cliente) de la clase Sesion establece las siguientes pre/post condiciones:
-a) Pre: La sesi´on tiene una entrada que no est´a reservada.
-b) Post: Se ha creado una nueva reserva asociada al cliente c.
-1 2
-c) Post: La nueva reserva tiene una entrada que es la mejor entre todas las que quedaban libres
-(su n´umero de asiento es el menor).
-*/
-
-context Sesion :: reservar(c : Cliente)
-pre : self.entrada->exists(reserva->isEmpty())
-post : self.entrada->exists(reserva->includes(c))
-/* @TODO!
-post : 
-*/
+/*Si dos sesiones de un espect´aculo son el mismo dia, entonces tienen lugar en el mismo teatro.*/
+inv I10_MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
