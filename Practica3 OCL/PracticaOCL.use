@@ -80,46 +80,31 @@ end
 constraints
 context Espectaculo
 
-inv NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
+inv 1_NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
 
 context Sesion
 
-inv AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
-
-context Sesion
-
-inv EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
-
-context Sesion
-
-inv AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
-
-context Sesion
-
-inv MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
+inv 2_AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
+inv 3_EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
+inv 4_AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
+inv 5_MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
 
 context Entrada
 
-inv EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
+inv 6_EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
 
 context Reserva
 
-inv EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
+inv 7_EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
 
-/*Las sesiones de cada espect´aculo no pueden coincidir en d´ıa y hora.*/
+/*Las sesiones de cada espectaculo no pueden coincidir en dia y hora.*/
 
 context Espectaculo
 
-inv SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
+inv 8_SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
 
 /*Cada dia hay, a lo sumo, dos sesiones por espectaculo.*/
+inv 9_Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
 
-context Espectaculo
-
-inv Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
-
-/*Si dos sesiones de un espect´aculo son el mismo d´ıa, entonces tienen lugar en el mismo teatro.*/
-
-context Espectaculo
-
-inv MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
+/*Si dos sesiones de un espect´aculo son el mismo dia, entonces tienen lugar en el mismo teatro.*/
+inv 10_MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
