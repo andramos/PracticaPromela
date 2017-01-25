@@ -123,3 +123,40 @@ inv Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
 context Espectaculo
 
 inv MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
+
+/*Para la operaci´on vender(c:Cliente) de la clase Entrada establece las siguientes pre/post condiciones:
+a) Pre: El cliente que quiere comprar la entrada, la tiene reservada.
+b) Pre: La entrada no est´a vendida (vendida es false).
+c) Post: La entrada est´a vendida (vendida es true).*/
+
+context Entrada :: vender(c : Cliente)
+pre : self.reserva.cliente = c
+pre : self.vendida = false
+post : self.vendida = true
+
+/*2. Para la operaci´on devolver() de la clase Entrada establece las siguientes pre/post condiciones:
+2
+a) Pre: hay un cliente que tiene la entrada reservada y/o comprada.
+b) Post: La entrada no est´a ni vendida ni reservada .
+c) Post: Ning´un cliente tiene la entrada en ninguna de sus reservas*/
+
+context Entrada :: devolver()
+pre : (self.reserva.cliente->size() = 1 and self.reservado = true) or (self.vendida = false)
+post : self.reserva.cliente->isEmpty() and self.reservado = false and self.vendida = false
+post : Cliente.allInstances->forAll(c | c.reserva->excludes(self))
+
+/*
+3. Para la operaci´on reservar(c:Cliente) de la clase Sesion establece las siguientes pre/post condiciones:
+a) Pre: La sesi´on tiene una entrada que no est´a reservada.
+b) Post: Se ha creado una nueva reserva asociada al cliente c.
+1 2
+c) Post: La nueva reserva tiene una entrada que es la mejor entre todas las que quedaban libres
+(su n´umero de asiento es el menor).
+*/
+
+context Sesion :: reservar(c : Cliente)
+pre : self.entrada->exists(reserva->isEmpty())
+post : self.entrada->exists(reserva->includes(c))
+/* @TODO!
+post : 
+*/
