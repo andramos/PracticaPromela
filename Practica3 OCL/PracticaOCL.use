@@ -20,7 +20,7 @@ end
 class Entrada
 attributes
 	reservado: Boolean
-	vendida: Integer
+	vendida: Boolean
 	numAsiento: Integer
 	dia: Integer
 	hora: Integer
