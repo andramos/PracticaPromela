@@ -88,29 +88,25 @@ inv I2_AsistentesYAsientos: self.sesion->collect(numAsistentes)->sum() <= self.n
 
 context Sesion
 
-inv I3_EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
+inv I3_EntradasVendidas: self.numAsistentes = self.entrada->select(vendida or reservado)->size()
 inv I4_AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
 inv I5_MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
 
 context Entrada
 
-inv I6_EntradaReservada: self.reservado = true implies self.reserva.cliente->size() > 0
+inv I6_EntradaReservada: self.reservado xor self.reserva.cliente->size() = 0
 
 context Reserva
 
-inv I7_EntradasDeReserva: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.sesion = e2.sesion)
-
-/*Las sesiones de cada espectaculo no pueden coincidir en dia y hora.*/
+inv I7_EntradasDeReserva: self.entrada->forAll(e1, e2 | e1.sesion = e2.sesion)
 
 context Espectaculo
 
 inv I8_SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
 
-/*Cada dia hay, a lo sumo, dos sesiones por espectaculo.*/
-inv I9_Max2Sesiones: self.sesion->size() > 0 and self.sesion->size() <= 2
+inv I9_Max2Sesiones: self.sesion->collect(dia)->forAll(d | self.sesion.dia->count(d) <= 2) 
 
-/*Si dos sesiones de un espectaculo son el mismo dia, entonces tienen lugar en el mismo teatro.*/
-inv I10_MismoTeatro: self.sesion->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
+inv I10_MismoTeatro: Sesion.allInstances()->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
 
 /*Para la operacion vender(c:Cliente) de la clase Entrada establece las siguientes pre/post condiciones: 
 a) Pre: El cliente que quiere comprar la entrada, la tiene reservada. 
