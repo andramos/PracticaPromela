@@ -82,9 +82,12 @@ context Espectaculo
 
 inv I1_NombresDiferentes: Espectaculo.allInstances()->isUnique(e: Espectaculo | e.nombre)
 
+context Teatro
+
+inv I2_AsistentesYAsientos: self.sesion->collect(numAsistentes)->sum() <= self.numAsientos
+
 context Sesion
 
-inv I2_AsistentesYAsientos: self.numAsistentes <= self.teatro.numAsientos
 inv I3_EntradasVendidas: self.numAsistentes = self.entrada->collect(vendida = true)->size()
 inv I4_AsientosDiferentes: self.entrada->forAll(e1, e2 | e1 <> e2 implies e1.numAsiento <> e2.numAsiento)
 inv I5_MismaHoraSesion: self.entrada->forAll(e | e.dia = self.dia and e.hora = self.hora)
