@@ -111,3 +111,33 @@
 !Entrada2.reservado := false
 !Entrada2.vendida := true
 !Sesion1.numAsistentes := 4
+!new Entrada
+!Entrada11.reservado := false
+!Entrada11.vendida := true
+!Entrada11.numAsiento := 4
+!Entrada11.dia := 8
+!Entrada11.hora := 10
+!insert (Sesion1,Entrada11) into SesionEntrada
+!Sesion1.numAsistentes := 5
+!new Entrada
+!Entrada12.reservado := false
+!Entrada12.vendida := true
+!Entrada12.numAsiento := 1
+!Entrada12.dia := 9
+!Entrada12.hora := 16
+!insert (Sesion2,Entrada12) into SesionEntrada
+!Sesion2.numAsistentes := 5
+!Entrada12.reservado := true
+!Entrada12.reservado := false
+!Entrada10.reservado := true
+!Entrada10.vendida := false
+!Entrada3.reservado := true
+!Entrada3.vendida := false
+!Entrada2.reservado := true
+!Entrada2.vendida := false
+!Entrada1.reservado := true
+!Entrada1.vendida := false
+!new ObraDanza
+!destroy ObraDanza2
+!new ObraDanza
+!ObraDanza3.nombre := 'Hamlet'
