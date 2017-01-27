@@ -103,15 +103,13 @@ inv I7_EntradasDeReserva: self.entrada->forAll(e1, e2 | e1.sesion = e2.sesion)
 context Espectaculo
 
 inv I8_SesionesEspectaculo: self.sesion->forAll(s1, s2 | (s1 <> s2 implies (s1.dia = s2.dia implies s1.hora <> s2.hora)))
-
 inv I9_Max2Sesiones: self.sesion->collect(dia)->forAll(d | self.sesion.dia->count(d) <= 2) 
-
 inv I10_MismoTeatro: Sesion.allInstances()->forAll(s1, s2 | s1.dia = s2.dia implies s1.teatro = s2.teatro)
 
 /*Para la operacion vender(c:Cliente) de la clase Entrada establece las siguientes pre/post condiciones: 
 a) Pre: El cliente que quiere comprar la entrada, la tiene reservada. 
-b) Pre: La entrada no est´a vendida (vendida es false). 
-c) Post: La entrada est´a vendida (vendida es true).*/ 
+b) Pre: La entrada no esta vendida (vendida es false). 
+c) Post: La entrada esta vendida (vendida es true).*/ 
  
 context Entrada :: vender(c : Cliente) 
 pre : self.reserva.cliente = c 
@@ -121,8 +119,8 @@ post : self.vendida = true
 /*2. Para la operacion devolver() de la clase Entrada establece las siguientes pre/post condiciones: 
 2 
 a) Pre: hay un cliente que tiene la entrada reservada y/o comprada. 
-b) Post: La entrada no est´a ni vendida ni reservada . 
-c) Post: Ning´un cliente tiene la entrada en ninguna de sus reservas*/ 
+b) Post: La entrada no esta ni vendida ni reservada
+c) Post: Ningun cliente tiene la entrada en ninguna de sus reservas*/ 
  
 context Entrada :: devolver() 
 pre : self.reserva.cliente->size() = 1 and (self.reservado or self.vendida) 
@@ -130,13 +128,11 @@ post : self.reserva.cliente->isEmpty() and self.reservado = false and self.vendi
 post : Cliente.allInstances->forAll(c | c.reserva->excludes(self)) 
  
 /* 
-3. Para la operaci´on reservar(c:Cliente) de la clase Sesion establece las siguientes pre/post condiciones: 
-a) Pre: La sesi´on tiene una entrada que no est´a reservada. 
-b) Post: Se ha creado una nueva reserva asociada al cliente c. 
-1 2 
+3. Para la operacion reservar(c:Cliente) de la clase Sesion establece las siguientes pre/post condiciones: 
+a) Pre: La sesion tiene una entrada que no esta reservada. 
+b) Post: Se ha creado una nueva reserva asociada al cliente c.
 c) Post: La nueva reserva tiene una entrada que es la mejor entre todas las que quedaban libres 
-(su n´umero de asiento es el menor). 
-*/ 
+(su numero de asiento es el menor). */ 
  
 context Sesion :: reservar(c : Cliente) 
 pre : self.entrada->exists(reserva->isEmpty() and not (reservado or vendida)) 
