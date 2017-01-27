@@ -125,7 +125,7 @@ b) Post: La entrada no est´a ni vendida ni reservada .
 c) Post: Ning´un cliente tiene la entrada en ninguna de sus reservas*/ 
  
 context Entrada :: devolver() 
-pre : (self.reserva.cliente->size() = 1 and self.reservado = true) or (self.vendida = false) 
+pre : self.reserva.cliente->size() = 1 and (self.reservado or self.vendida) 
 post : self.reserva.cliente->isEmpty() and self.reservado = false and self.vendida = false 
 post : Cliente.allInstances->forAll(c | c.reserva->excludes(self)) 
  
@@ -139,8 +139,6 @@ c) Post: La nueva reserva tiene una entrada que es la mejor entre todas las que 
 */ 
  
 context Sesion :: reservar(c : Cliente) 
-pre : self.entrada->exists(reserva->isEmpty()) 
-post : self.entrada->exists(reserva->includes(c)) 
-/* @TODO! 
-post :  
-*/
+pre : self.entrada->exists(reserva->isEmpty() and not (reservado or vendida)) 
+post : (c.reserva - c.reserva@pre).entrada->one(reserva.cliente = c) 
+post : (c.reserva - c.reserva@pre).entrada->one(numAsiento = self.entrada@pre->select(not (vendida or reservado))->collect(numAsiento)->asSequence()->at(1))
