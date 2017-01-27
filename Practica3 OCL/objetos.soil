@@ -141,3 +141,14 @@
 !destroy ObraDanza2
 !new ObraDanza
 !ObraDanza3.nombre := 'Hamlet'
+!new Entrada
+!insert (Sesion1,Entrada13) into SesionEntrada
+!Entrada13.reservado := false
+!Entrada13.vendida := false
+!Entrada13.numAsiento := 5
+!Entrada13.dia := 8
+!Entrada13.hora := 10
+!Entrada11.vendida := false
+!new Teatro
+!Teatro2.numAsientos := 20
+!Teatro2.nombre := 'Alameda'

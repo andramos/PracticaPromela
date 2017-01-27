@@ -38,8 +38,16 @@
   <node id="Entrada11" sizeCalculated="true" type="Object">
     <name>Entrada11</name>
     <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-      <x>749.0</x>
+      <x>732.0</x>
       <y>7.0</y>
+    </strategy>
+    <hidden>false</hidden>
+  </node>
+  <node id="Teatro2" sizeCalculated="true" type="Object">
+    <name>Teatro2</name>
+    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+      <x>992.0</x>
+      <y>658.0</y>
     </strategy>
     <hidden>false</hidden>
   </node>
@@ -94,8 +102,8 @@
   <node id="Entrada12" sizeCalculated="true" type="Object">
     <name>Entrada12</name>
     <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-      <x>754.0</x>
-      <y>626.0</y>
+      <x>732.0</x>
+      <y>632.0</y>
     </strategy>
     <hidden>false</hidden>
   </node>
@@ -107,11 +115,19 @@
     </strategy>
     <hidden>false</hidden>
   </node>
+  <node id="Entrada13" sizeCalculated="true" type="Object">
+    <name>Entrada13</name>
+    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+      <x>730.0</x>
+      <y>180.0</y>
+    </strategy>
+    <hidden>false</hidden>
+  </node>
   <node id="Sesion1" sizeCalculated="true" type="Object">
     <name>Sesion1</name>
     <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-      <x>934.0</x>
-      <y>102.0</y>
+      <x>949.0</x>
+      <y>96.0</y>
     </strategy>
     <hidden>false</hidden>
   </node>
@@ -126,8 +142,8 @@
   <node id="ObraDanza3" sizeCalculated="true" type="Object">
     <name>ObraDanza3</name>
     <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-      <x>956.0</x>
-      <y>604.0</y>
+      <x>978.0</x>
+      <y>594.0</y>
     </strategy>
     <hidden>false</hidden>
   </node>
@@ -201,20 +217,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[TeatroSesion : (sesion:Sesion2, teatro:Teatro1)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>*</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[TeatroSesion : (sesion:Sesion2, teatro:Teatro1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[TeatroSesion : (sesion:Sesion2, teatro:Teatro1)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>sesion</name>
@@ -225,6 +227,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[TeatroSesion : (sesion:Sesion2, teatro:Teatro1)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>*</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[TeatroSesion : (sesion:Sesion2, teatro:Teatro1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -308,20 +324,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>espectaculo</name>
@@ -336,16 +338,16 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
+        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::WayPoint::1</attached>
+          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
-          <placement>TOP</placement>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -360,6 +362,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -415,20 +431,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada3, reserva:Reserva1)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>entrada</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada3, reserva:Reserva1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EntradaReserva : (entrada:Entrada3, reserva:Reserva1)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>0..6</name>
@@ -439,6 +441,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EntradaReserva : (entrada:Entrada3, reserva:Reserva1)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EntradaReserva : (entrada:Entrada3, reserva:Reserva1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -522,20 +538,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>0..6</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>entrada</name>
@@ -550,13 +552,13 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::target::multiplicity"
+        id="[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
+        <name>0..6</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::WayPoint::1</attached>
+          <attached>[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
@@ -574,6 +576,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EntradaReserva : (entrada:Entrada7, reserva:Reserva3)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -665,20 +681,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada5, reserva:Reserva2)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>reserva</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada5, reserva:Reserva2)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EntradaReserva : (entrada:Entrada5, reserva:Reserva2)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -689,6 +691,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EntradaReserva : (entrada:Entrada5, reserva:Reserva2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>reserva</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EntradaReserva : (entrada:Entrada5, reserva:Reserva2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -744,20 +760,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>*</name>
@@ -772,16 +774,16 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::target::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
+        id="[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::WayPoint::1</attached>
+          <attached>[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -796,6 +798,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[TeatroSesion : (sesion:Sesion1, teatro:Teatro1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -887,20 +903,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion1)]::target::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>*</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion1)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion1)]::target::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>sesion</name>
@@ -911,6 +913,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion1)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>*</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EspectaculoSesion : (espectaculo:ObraTeatro1, sesion:Sesion1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1101,20 +1117,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva4)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>reserva</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[ClienteReserva : (cliente:Cliente2, reserva:Reserva4)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva4)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>*</name>
@@ -1125,6 +1127,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva4)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>reserva</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[ClienteReserva : (cliente:Cliente2, reserva:Reserva4)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1208,20 +1224,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>entrada</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>*</name>
@@ -1232,6 +1234,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1264,6 +1280,113 @@
     </waypoints>
     <hidden>false</hidden>
     <linkValue>[SesionEntrada : (entrada:Entrada12, sesion:Sesion2)]</linkValue>
+  </edge>
+  <edge type="BinaryEdge">
+    <source>Sesion1</source>
+    <target>Entrada13</target>
+    <name>SesionEntrada</name>
+    <properties>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::AssociationName"
+        sizeCalculated="true" type="associationName" userDefined="false" visible="true">
+        <name>SesionEntrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <offsetX>0.0</offsetX>
+          <offsetY>-10.0</offsetY>
+          <related length="2">
+            <related0>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::0</related0>
+            <related1>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::1</related1>
+          </related>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>*</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+    </properties>
+    <waypoints>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::0"
+        sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+        <name>0</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+        </strategy>
+        <id>0</id>
+        <specialid>1</specialid>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]::WayPoint::1"
+        sizeCalculated="true" type="WayPoint" userDefined="false" visible="true">
+        <name>1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+        </strategy>
+        <id>1</id>
+        <specialid>2</specialid>
+        <hidden>false</hidden>
+      </edgeproperty>
+    </waypoints>
+    <hidden>false</hidden>
+    <linkValue>[SesionEntrada : (entrada:Entrada13, sesion:Sesion1)]</linkValue>
   </edge>
   <edge type="BinaryEdge">
     <source>Cliente1</source>
@@ -1394,20 +1517,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada3, sesion:Sesion1)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada3, sesion:Sesion1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada3, sesion:Sesion1)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -1418,6 +1527,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada3, sesion:Sesion1)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada3, sesion:Sesion1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1501,20 +1624,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada10, sesion:Sesion1)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada10, sesion:Sesion1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada10, sesion:Sesion1)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>sesion</name>
@@ -1525,6 +1634,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada10, sesion:Sesion1)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada10, sesion:Sesion1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1636,20 +1759,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada4, reserva:Reserva2)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>reserva</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada4, reserva:Reserva2)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EntradaReserva : (entrada:Entrada4, reserva:Reserva2)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -1660,6 +1769,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EntradaReserva : (entrada:Entrada4, reserva:Reserva2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>reserva</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EntradaReserva : (entrada:Entrada4, reserva:Reserva2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -1929,20 +2052,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada2, sesion:Sesion1)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada2, sesion:Sesion1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada2, sesion:Sesion1)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -1953,6 +2062,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada2, sesion:Sesion1)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada2, sesion:Sesion1)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2036,20 +2159,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada8, sesion:Sesion2)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada8, sesion:Sesion2)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada8, sesion:Sesion2)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -2060,6 +2169,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada8, sesion:Sesion2)]::source::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>sesion</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada8, sesion:Sesion2)]::WayPoint::0</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2250,20 +2373,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>cliente</name>
@@ -2278,16 +2387,16 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>reserva</name>
+        id="[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::WayPoint::1</attached>
+          <attached>[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
-          <placement>TOP</placement>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2302,6 +2411,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>reserva</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[ClienteReserva : (cliente:Cliente1, reserva:Reserva1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2385,20 +2508,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada4, sesion:Sesion2)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>entrada</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada4, sesion:Sesion2)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada4, sesion:Sesion2)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>*</name>
@@ -2409,6 +2518,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada4, sesion:Sesion2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada4, sesion:Sesion2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2464,20 +2587,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::source::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>1</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>sesion</name>
@@ -2492,16 +2601,16 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>entrada</name>
+        id="[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::source::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::WayPoint::1</attached>
+          <attached>[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
-          <placement>TOP</placement>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2516,6 +2625,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada11, sesion:Sesion1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2599,20 +2722,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva3)]::target::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>*</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[ClienteReserva : (cliente:Cliente2, reserva:Reserva3)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva3)]::target::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>reserva</name>
@@ -2623,6 +2732,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[ClienteReserva : (cliente:Cliente2, reserva:Reserva3)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>*</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[ClienteReserva : (cliente:Cliente2, reserva:Reserva3)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2678,20 +2801,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::source::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>sesion</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::WayPoint::0</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::source::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -2706,13 +2815,13 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::target::rolename"
+        id="[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::source::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>entrada</name>
+        <name>sesion</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
           <userOffsetX>0.0</userOffsetX>
           <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::WayPoint::1</attached>
+          <attached>[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::WayPoint::0</attached>
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
@@ -2730,6 +2839,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>entrada</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada7, sesion:Sesion2)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2821,20 +2944,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[EntradaReserva : (entrada:Entrada8, reserva:Reserva3)]::target::rolename"
-        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
-        <name>reserva</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[EntradaReserva : (entrada:Entrada8, reserva:Reserva3)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>TOP</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[EntradaReserva : (entrada:Entrada8, reserva:Reserva3)]::target::multiplicity"
         sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
         <name>1</name>
@@ -2845,6 +2954,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>BOTTOM</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[EntradaReserva : (entrada:Entrada8, reserva:Reserva3)]::target::rolename"
+        sizeCalculated="true" type="rolename" userDefined="false" visible="true">
+        <name>reserva</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[EntradaReserva : (entrada:Entrada8, reserva:Reserva3)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>TOP</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
@@ -2936,20 +3059,6 @@
         <hidden>false</hidden>
       </edgeproperty>
       <edgeproperty
-        id="[SesionEntrada : (entrada:Entrada1, sesion:Sesion1)]::target::multiplicity"
-        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
-        <name>*</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-          <userOffsetX>0.0</userOffsetX>
-          <userOffsetY>0.0</userOffsetY>
-          <attached>[SesionEntrada : (entrada:Entrada1, sesion:Sesion1)]::WayPoint::1</attached>
-          <offset_x>8</offset_x>
-          <offset_y>8</offset_y>
-          <placement>BOTTOM</placement>
-        </strategy>
-        <hidden>false</hidden>
-      </edgeproperty>
-      <edgeproperty
         id="[SesionEntrada : (entrada:Entrada1, sesion:Sesion1)]::target::rolename"
         sizeCalculated="true" type="rolename" userDefined="false" visible="true">
         <name>entrada</name>
@@ -2960,6 +3069,20 @@
           <offset_x>8</offset_x>
           <offset_y>8</offset_y>
           <placement>TOP</placement>
+        </strategy>
+        <hidden>false</hidden>
+      </edgeproperty>
+      <edgeproperty
+        id="[SesionEntrada : (entrada:Entrada1, sesion:Sesion1)]::target::multiplicity"
+        sizeCalculated="true" type="multiplicity" userDefined="false" visible="true">
+        <name>*</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+          <userOffsetX>0.0</userOffsetX>
+          <userOffsetY>0.0</userOffsetY>
+          <attached>[SesionEntrada : (entrada:Entrada1, sesion:Sesion1)]::WayPoint::1</attached>
+          <offset_x>8</offset_x>
+          <offset_y>8</offset_y>
+          <placement>BOTTOM</placement>
         </strategy>
         <hidden>false</hidden>
       </edgeproperty>
